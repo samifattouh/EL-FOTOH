@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ElFotoh Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+
+    <style>
+        /* Your existing styles */
+
+        #cartItemsCarousel {
+            display: flex;
+            overflow: hidden;
+        }
+
+        .cart-item {
+            flex: 0 0 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing body content -->
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Shopping Cart</h3>
+
+            <!-- Carousel for Cart Items -->
+            <div id="cartItemsCarousel" class="cart-items-carousel">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+
+            <!-- Checkout button -->
+            <a href="sign up.html"><button id="checkoutBtn">Checkout</button></a>
+        </div>
+    </div>
+
+    <!-- Your existing script links -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        // Sample JavaScript for adding items to the carousel
+        const cartItems = [
+            { name: 'Product 1', price: ' $50.00' },
+            { name: 'Product 2', price: ' $30.00' },
+            { name: 'Product 3', price: ' $25.00' },
+        ];
+
+        const cartItemsCarousel = document.getElementById('cartItemsCarousel');
+
+        // Function to add items to the carousel
+        function populateCartCarousel() {
+            cartItemsCarousel.innerHTML = ''; // Clear existing items
+
+            cartItems.forEach((item) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <h4>${item.name}</h4>
+                    <p>Price: ${item.price}</p>
+                `;
+                cartItemsCarousel.appendChild(cartItem);
+            });
+
+            // Reset transform to show the first item
+            cartItemsCarousel.style.transform = 'translateX(0)';
+        }
+
+        // Populate the carousel when the page loads
+        populateCartCarousel();
+
+        // Sample JavaScript for sliding the carousel
+        let currentIndex = 0;
+
+        function showNextItem() {
+            if (currentIndex < cartItems.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        }
+
+        function showPrevItem() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        }
+
+        function updateCarousel() {
+            const itemWidth = cartItemsCarousel.offsetWidth;
+            const translateXValue = -currentIndex * itemWidth;
+            cartItemsCarousel.style.transform = `translateX(${translateXValue}px)`;
+        }
+    </script>
+</body>
+</html>
