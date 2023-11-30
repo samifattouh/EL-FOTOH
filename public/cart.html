@@ -1,102 +1,330 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ElFotoh Website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shopping Cart</title>
     <style>
-        /* Your existing styles */
-
-        #cartItemsCarousel {
+        .product-list {
             display: flex;
-            overflow: hidden;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
 
-        .cart-item {
-            flex: 0 0 100%;
-            transition: transform 0.5s ease-in-out;
+        .product {
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        .shopping-cart {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #dddddd;
+        }
+
+        .shopping-cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .checkout-form {
+            margin-top: 20px;
+        }
+
+        .checkout-form input[type="text"],
+        .checkout-form input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .checkout-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <!-- Your existing body content -->
-
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Shopping Cart</h3>
-
-            <!-- Carousel for Cart Items -->
-            <div id="cartItemsCarousel" class="cart-items-carousel">
-                <!-- Cart items will be dynamically added here -->
-            </div>
-
-            <!-- Checkout button -->
-            <a href="sign up.html"><button id="checkoutBtn">Checkout</button></a>
+    <div class="product-list">
+        <div class="product">
+            <img src="fridge.jpg" alt="Product 1">
+            <h2>SHARB</h2>
+            <p>$10</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
         </div>
+        <div class="product">
+            <img src="heater.jpg" alt="Product 2">
+            <h2>FRESH</h2>
+            <p>$20</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="dishwasher.jpg" alt="Product 3">
+            <h2>BEKO</h2>
+            <p>$30</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="botgaz.jpg" alt="Product 3">
+            <h2>ZANUSSI</h2>
+            <p>$30</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        
     </div>
 
-    <!-- Your existing script links -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <div class="shopping-cart">
+        <h1 style="text-align: center;">Shopping Cart</h1>
+        <div id="shopping-cart-items"></div>
+
+        <div class="checkout-form">
+            <form onsubmit="checkout(event)">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="text" name="address" placeholder="Address" required>
+                <button style="margin-left: 650px;" type="submit">Checkout</button>
+            </form>
+        </div>
+        </div>
+
     <script>
-        // Sample JavaScript for adding items to the carousel
-        const cartItems = [
-            { name: 'Product 1', price: ' $50.00' },
-            { name: 'Product 2', price: ' $30.00' },
-            { name: 'Product 3', price: ' $25.00' },
-        ];
+        const cartItems = [];
 
-        const cartItemsCarousel = document.getElementById('cartItemsCarousel');
+        function addToCart(product) {
+            const productInfo = {
+                name: product.parentElement.querySelector('h2').innerText,
+                price: parseFloat(product.parentElement.querySelector('p').innerText.substring(1)),
+            };
 
-        // Function to add items to the carousel
-        function populateCartCarousel() {
-            cartItemsCarousel.innerHTML = ''; // Clear existing items
+            cartItems.push(productInfo);
+            updateCartItems();
+        }
 
-            cartItems.forEach((item) => {
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.innerHTML = `
-                    <h4>${item.name}</h4>
-                    <p>Price: ${item.price}</p>
+        function updateCartItems() {
+            const cartItemsContainer = document.getElementById('shopping-cart-items');
+            cartItemsContainer.innerHTML = '';
+
+            cartItems.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('shopping-cart-item');
+                itemElement.innerHTML = `
+                    <span>${item.name} - $${item.price}</span>
+                    <input type="number">
+                    <button onclick="removeFromCart(${index})">Remove</button>
                 `;
-                cartItemsCarousel.appendChild(cartItem);
+                cartItemsContainer.appendChild(itemElement);
             });
-
-            // Reset transform to show the first item
-            cartItemsCarousel.style.transform = 'translateX(0)';
         }
 
-        // Populate the carousel when the page loads
-        populateCartCarousel();
-
-        // Sample JavaScript for sliding the carousel
-        let currentIndex = 0;
-
-        function showNextItem() {
-            if (currentIndex < cartItems.length - 1) {
-                currentIndex++;
-                updateCarousel();
-            }
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            updateCartItems();
         }
 
-        function showPrevItem() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        }
+        function checkout(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const address = formData.get('address');
 
-        function updateCarousel() {
-            const itemWidth = cartItemsCarousel.offsetWidth;
-            const translateXValue = -currentIndex * itemWidth;
-            cartItemsCarousel.style.transform = `translateX(${translateXValue}px)`;
+            alert(`Customer name: ${name}\nCustomer phone: ${phone}\nCustomer address: ${address}\n\nTotal: $${cartItems.reduce((total, item) => total + item.price, 0).toFixed(2)}`);
+
+            cartItems.length = 0;
+            updateCartItems();
         }
     </script>
 </body>
 </html>
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slideshow Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #fff;
+    }
+
+    button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    .cart-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .cart {
+      border: 1px solid #ddd;
+      padding: 10px;
+      position: relative;
+    }
+
+    .cart-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart-item {
+      border-bottom: 1px solid #ddd;
+      padding: 8px 0;
+    }
+
+    .cart-total {
+      font-weight: bold;
+    }
+
+    .show-cart {
+      transform: translateX(0);
+    }
+
+    .close-cart {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Slideshow Shopping Cart</h1>
+  </header>
+
+  <div class="container">
+
+    <div class="product" id="product1">
+      <h2>Product 1</h2>
+      <p>Price: $19.99</p>
+      <button onclick="addToCart('Product 1', 19.99)">Add to Cart</button>
+    </div>
+
+    <div class="product" id="product2">
+      <h2>Product 2</h2>
+      <p>Price: $29.99</p>
+      <button onclick="addToCart('Product 2', 29.99)">Add to Cart</button>
+    </div>
+
+  </div>
+
+  <div class="cart-container" id="cart-container">
+    <div class="cart">
+      <span class="close-cart" onclick="closeCart()">&times;</span>
+      <h2>Shopping Cart</h2>
+      <ul class="cart-items" id="cart-items"></ul>
+      <p class="cart-total">Total: $<span id="cart-total">0.00</span></p>
+    </div>
+  </div>
+
+  <!-- ... (previous code) ... 
+
+  <script>
+    let cartItems = [];
+    let cartTotal = 0;
+
+    function addToCart(productName, price) {
+      cartItems.push({ name: productName, price: price });
+      cartTotal += price;
+
+      // Update the cart display
+      updateCartDisplay();
+
+      // Show the cart container
+      document.getElementById('cart-container').classList.add('show-cart');
+    }
+
+    function updateCartDisplay() {
+      const cartItemsElement = document.getElementById('cart-items');
+      const cartTotalElement = document.getElementById('cart-total');
+
+      // Clear previous items
+      cartItemsElement.innerHTML = '';
+
+      // Add new items
+      cartItems.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.className = 'cart-item';
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`; // Fix template literal syntax
+        cartItemsElement.appendChild(listItem);
+      });
+
+      // Update total
+      cartTotalElement.textContent = cartTotal.toFixed(2);
+    }
+
+    function closeCart() {
+      // Hide the cart container
+      document.getElementById('cart-container').classList.remove('show-cart');
+    }
+  </script>
+
+<!-- ... (remaining code) ... 
+
+
+</body>
+</html>
+-->

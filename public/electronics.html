@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .product img {
+            width: 250px;
+            height: 250px;
+        }
+
+        .product h2 {
+            margin: 10px 0;
+        }
+
+        .product p {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }   
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <img src="sale.jpg" height="400" width="1450"/>
+      </div>
+      <br><br>
+    <div class="container">
+        
+        <div class="product">
+            <div style="text-align: center;">
+            <img src="fan.jpg" alt="Product Image">
+        </div>
+            <h2><strong>FRESH</strong></h2>
+            <p>Shabah Wall Fan 240 volt 18 inch Wall-Fan-Multi-1 Red/Black. </p>
+            <p><strong>Price: EGP 1329.00</strong></p>
+            <button id="add-to-cart">Add to Cart</button>
+        </div>
+        <br><br>
+        <div class="product">
+            <div style="text-align: center;">
+            <img src="fridge.jpg" alt="Product Image">
+        </div>
+            <h2><strong>SHARB</strong></h2>
+            <p>Refrigerator Inverter Digital No Frost 450 Liter. Doors 2190.0 kW SJ-PV58G-BK Black.</p>
+            <p><strong>Price: EGP 2394.00</strong></p>
+            <button id="add-to-cart">Add to Cart</button>
+        </div>
+        <br><br>
+        <div class="product">
+            <div style="text-align: center;">
+            <img src="heater.jpg" alt="Product Image">
+        </div>
+            <h2><strong>FRESH</strong></h2>
+            <p>Electric Water Heater Relax 30 Liter 500014261 White.</p>
+            <p><strong>Price: EGP 31350.00</strong></p>
+            <button id="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        const addToCartButton = document.getElementById('add-to-cart');
+
+addToCartButton.addEventListener('click', () => {
+    const product = {
+        name: 'Product Name',
+        description: 'Product Description',
+        price: 100,
+        quantity: 1
+    };
+
+    // Retrieve the cart from localStorage.
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Check if the product is already in the cart.
+    const existingProductIndex = cart.findIndex(item => item.name === product.name);
+
+    if (existingProductIndex !== -1) {
+        // If the product is already in the cart, increase its quantity.
+        cart[existingProductIndex].quantity++;
+    } else {
+        // If the product is not in the cart, add it.
+        cart.push(product);
+    }
+
+    // Save the updated cart to localStorage.
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert('Product added to cart successfully!');
+});
+    </script>
+</body>
+</html>

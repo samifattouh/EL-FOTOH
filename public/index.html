@@ -8,6 +8,46 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+      }
+
+      .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+
+      .product img {
+          width: 250px;
+          height: 250px;
+      }
+
+      .product h2 {
+          margin: 10px 0;
+      }
+
+      .product p {
+          margin: 10px 0;
+      }
+
+      button {
+          padding: 10px;
+          margin: 10px 0;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+      }
+
+      button:hover {
+          background-color: #45a049;
+      }   
+  </style>
 </head>
 <body>
   <nav>
@@ -16,14 +56,14 @@
         <img src="mall-removebg-preview.png" alt="Your Logo" style="height: 60px;">
       </div>
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <div class="dropdown">
           <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categories
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="electronics.html">Electronics</a></li>
+            <li><a class="dropdown-item" href="laptop.html">Laptops</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </div>
@@ -60,69 +100,68 @@
       <h2><strong>Electronics</strong></h2>
       <p></p>
     </div>
-      <table border="4">
-        <tr>
-          <td>
-            <th>
-            <div id="item">
-              <div style="text-align: center;">
-              <img src="fridge.jpg" height="200"/>
+      <div class="cloum">
+        <div class="product">
+          <img src="heater.jpg" height="200"/><br><br>
+            <h3><strong>FRESH</strong></h3>
+            <p>Electric Water Heater Relax 30 Liter 500014261 White.</p>
+            <h4><strong>Price: EGP 2394.00</strong></h4>
+            <button id="add-to-cart">Add to Cart</button><br><br>
+        </div>
+        <div class="product">
+          <img src="botgaz.jpg" height="200"/><br><br>
+          <h3><strong>ZANUSSI</strong></h3>
+          <p>Gas Stove 5 Burners Cool Max Auto Ignition Full Safety ZCG94396XA Silver</p>
+          <h4><strong>Price: EGP 15084.00</strong></h4>
+          <button id="add-to-cart">Add to Cart</button><br><br>
+        </div>
+        <div class="product">
+          <img src="dishwasher.jpg" height="200"/><br><br>
+          <h3><strong>BEKO</strong></h3>
+          <p>Dishwasher 45 cm 5 program 10 person LED Display. Half load time delay 10 OZ DVS05020S silver .</p>
+          <h4><strong>Price: EGP 17469.00 </strong></h4>
+          <button id="add-to-cart">Add to Cart</button><br><br>
+        </div>
+        <div class="product">
+          <img src="fridge.jpg" height="200"/><br><br>
               <h3><strong>SHARB</strong></h3>
-              <p>Refrigerator Inverter Digital No Frost 450 Liter. 
-                <p>2 Doors 2190.0 kW SJ-PV58G-BK Black.</p>
-              </p>
-              <p>Price: EGP 31350.00</p>
-              <button>Add to Cart</button>
-            </div>
-          </div>
-        </th>
-          </td>
-          <td>
-            <th>
-              <div id="item">
-                <div style="text-align: center;">
-                <img src="dishwasher.jpg" height="200"/>
-                <h3><strong>BEKO</strong></h3>
-                <p>Dishwasher 45 cm 5 program 10 person LED Display. 
-                  <p>Half load time delay 10 OZ DVS05020S silver . </p>
-                </p>
-                <p>Price: EGP 17469.00 </p>
-                <button>Add to Cart</button>
-              </div>
-            </div>
-          </th>
-          </td>
-          <td>
-            <th>
-              <div id="item">
-                <div style="text-align: center;">
-                <img src="botgaz.jpg" height="200"/>
-                <h3><strong>ZANUSSI</strong></h3>
-                <p>Gas Stove 5 Burners Cool Max Auto Ignition. 
-                  <p>Full Safety ZCG94396XA Silver . </p>
-                </p>
-                <p>Price: EGP 15084.00 </p>
-                <button>Add to Cart</button>
-              </div>
-            </div>
-          </th>
-          </td>
-          <td>
-            <th>
-              <div id="item">
-                <div style="text-align: center;">
-                <img src="heater.jpg" height="200"/>
-                <h3><strong>FRESH</strong></h3>
-                <p>Electric Water Heater Relax 30 Liter 500014261 White. </p>
-                <p>Price: EGP 2394.00 </p>
-                <button>Add to Cart</button>
-              </div>
-            </div>
-          </th>
-          </td>
-        </tr>
-      </table>
-      <div id="cartModal" class="modal">
+          <p>Refrigerator Inverter Digital No Frost 450 Liter. Doors 2190.0 kW SJ-PV58G-BK Black.</p>
+          <h4><strong>Price: EGP 31350.00</strong></h4>
+          <button id="add-to-cart">Add to Cart</button><br><br><br><br>
+        </div>
+      </div>
+      <br><br>
+      <div class="cloum">
+      <div class="product">
+        <img src="TV.jpg" height="250"/><br>
+        <h3><strong>Samsung</strong></h3>
+        <p>43-Inch Full HD Smart TV With Built In Receiver 43T5300 / UA43T5300AUXEG Black. </p>
+        <h4><strong>Price: EGP 10499.00</strong></h4>
+        <button id="add-to-cart">Add to Cart</button><br><br>
+    </div>
+    <div class="product">
+      <img src="koldairk.jpg" height="250"/><br><br>
+        <h3><strong>koldair</strong></h3>
+      <p>Turbo Cooling Water Dispenser KWD B2.1 Silver. </p>
+      <h4><strong>Price: EGP 5749.00 </strong></h4>
+      <button id="add-to-cart">Add to Cart</button><br><br>
+    </div>
+    <div class="product">
+      <img src="air.jpg" height="250"/><br><br>
+        <h3><strong>LG</strong></h3>
+      <p>2.25 Hp Inverter Coolheat Split System Air Conditioner 1900.0 W S4-W18KL3AB White. </p>
+      <h4><strong>Price: EGP 38999.00</strong></h4>
+      <button id="add-to-cart">Add to Cart</button><br><br>
+    </div>
+    <div class="product">
+      <img src="fan.jpg" height="250"/><br><br>
+        <h3><strong>FRESH</strong></h3>
+      <p>Shabah Wall Fan 240 volt 18 inch Wall-Fan-Multi-1 Red/Black. </p>
+      <h4><strong>Price: EGP 1329.00</strong></h4>
+      <button id="add-to-cart">Add to Cart</button><br><br>
+    </div>
+  </div>
+            <div id="cartModal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
           <h3>Shopping Cart</h3>
@@ -133,7 +172,37 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+      const addToCartButton = document.getElementById('add-to-cart');
 
+addToCartButton.addEventListener('click', () => {
+  const product = {
+      name: 'Product Name',
+      description: 'Product Description',
+      price: 100,
+      quantity: 1
+  };
+
+  // Retrieve the cart from localStorage.
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Check if the product is already in the cart.
+  const existingProductIndex = cart.findIndex(item => item.name === product.name);
+
+  if (existingProductIndex !== -1) {
+      // If the product is already in the cart, increase its quantity.
+      cart[existingProductIndex].quantity++;
+  } else {
+      // If the product is not in the cart, add it.
+      cart.push(product);
+  }
+
+  // Save the updated cart to localStorage.
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  alert('Product added to cart successfully!');
+});
+  </script>
 </body>
 </html>
 
