@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>About Us - Your E-Commerce Website</title>
+    <style>
+        /* aboutus.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+}
+
+.aboutus-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+}
+h1 {
+    color: #3498db;}
+
+h2,p {
+    font-weight: 700;
+}
+
+section {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+.centered-image {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%; /* Ensures the image doesn't exceed its natural size */
+}
+
+.centered-image img {
+    width: 100%; /* Ensures the image takes up the full width of its container */
+    height: auto; /* Maintains the aspect ratio of the image */
+}
+article {
+    text-align: justify;
+    line-height: 2.2;}
+
+
+.scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.scroll-to-top:hover {
+    background-color: #2980b9;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="aboutus-container">
+    <div class="centered-image">
+        <!-- Add your image tag here -->
+        <img src="about.jpg" alt="Your Company Photo">
+    </div>
+    <header>
+        <h1>About Us</h1>
+    </header>
+    <section>
+        <article>
+            <h2>شركة الفتوح</h2>
+            <p>
+                شركة الفتوح هي شركة مصرية رائدة في مجال بيع الأجهزة الكهربائية والإلكترونيات والأدوات المنزلية. تأسست في عام 1950 وبدأت نشاطها كمحل صغير لبيع الاجهزة الكهربائية بمدينة بلبيس بمحافظة الشرقية في مصر. خلال أكثر من 70 عامًا من العمل المتواصل، تطورت الشركة ونمت بفضل ثقة عملائها الكرام.
+            </p>
+            <p>
+                توسعت شركة الفتوح بفتح عدة فروع في مدينة بلبيس لتلبية احتياجات العملاء المتنوعة في جميع المجالات. ولمواكبة التطور التكنولوجي، تم تطوير موقع الشركة الإلكتروني لتقديم خدمة مميزة لعملاء جدد من جميع أنحاء مصر.
+            </p>
+            <p>
+                في شركة الفتوح نحرص على تقديم تجربة شراء استثنائية لعملائنا. نحن نفهم أهمية الجودة والتنوع والتكنولوجيا الحديثة في تلبية احتياجات العملاء، ولذلك نقدم مجموعة واسعة من المنتجات ذات الجودة العالية بأسعار تنافسية.
+            </p>
+            <p>
+                نحن نفتخر بفريقنا المتخصص وذوي الخبرة في مجالاتهم، حيث يعملون جنبًا إلى جنب لضمان تلبية احتياجات عملائنا وتحقيق رضاهم. نحن نؤمن بأهمية بناء علاقات طويلة الأمد مع عملائنا، ونسعى دائمًا لتحسين خدماتنا وتلبية توقعاتهم.
+            </p>
+            <p>
+                في شركة الفتوح نضع عملائنا في مقدمة أولوياتنا، ونعمل بجد لتحقيق رضاهم التام. نحن نلتزم بتوفير خدمة عملاء ممتازة وتجربة تسوق مريحة وآمنة. نحن ندعم عملائنا بفريق محترف ومتعاون يتمتع بالخبرة والمعرفة اللازمة لتقديم المساعدة والإرشاد في اختيار المنتجات المناسبة.
+            </p>
+            <p>
+                شركة الفتوح تفخر بتاريخها الطويل في مجال البيع بالتجزئة، وتسعى دائمًا لتقديم أفضل الحلول والمنتجات لعملائها. إذا كنت تبحث عن جودة عالية وخدمة ممتازة، فنحن هنا لخدمتك، من خلال موقعنا الإلكتروني استكشف الآن تشكيلتنا الواسعة من المنتجات وتجربة تسوق رائعة.
+            </p>
+            <p>
+                يرجى التواصل معنا إذا كان لديك أي استفسارات أو احتياجات خاصة. فريق خدمة العملاء لدينا سيكون سعيدًا للمساعدة وتقديم المساعدة اللازمة.
+            </p>
+        </article>
+        <!-- Add more content as needed -->
+    </section>
+    
+</div>
+
+<button class="scroll-to-top" onclick="scrollToTop()">Scroll to Top</button>
+
+<script>
+    // aboutus.js
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+// Show/Hide scroll-to-top button based on scroll position
+window.onscroll = function() {
+    var scrollButton = document.querySelector(".scroll-to-top");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollButton.style.display = "block";
+    } else {
+        scrollButton.style.display = "none";
+    }
+};
+
+</script>
+
+</body>
+</html>
