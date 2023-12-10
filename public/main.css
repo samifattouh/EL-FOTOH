@@ -10,26 +10,22 @@
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
+    
   }
   
   nav {
-    background-color: #232f3e;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #fff; /* Background color for the navigation bar */
+    z-index: 1000; /* Ensures it appears above other elements */
   }
   
   .nav-container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    align-items: center;
+    padding: 10px 20px; /* Adds padding around the navigation elements */
   }
   
   .logo {
@@ -352,7 +348,6 @@
   text-align: center;
   padding: 20px;
 }
-
     /* Container styles */
     .container {
       display: flex;
@@ -426,3 +421,4 @@
 .cloum{
   display: inline-flex;
 }
+

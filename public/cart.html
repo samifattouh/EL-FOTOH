@@ -4,105 +4,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Shopping Cart</title>
+    <title>Enhanced Shopping Cart</title>
     <style>
-        .product-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
+      body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
 
-        .product {
-            width: 200px;
-            margin: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
+header {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
 
-        .product img {
-            width: 100%;
-            height: auto;
-        }
+.main-title {
+    margin: 0;
+}
 
-        .shopping-cart {
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #dddddd;
-        }
+.product-section, .shopping-cart-section {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
 
-        .shopping-cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
-        .checkout-form {
-            margin-top: 20px;
-        }
+.product {
+    width: 300px;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid #e1e4e8;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
 
-        .checkout-form input[type="text"],
-        .checkout-form input[type="tel"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-        }
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 
-        .checkout-form button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
+.product-title {
+    color: #333;
+}
+
+.product-price {
+    font-weight: bold;
+}
+
+.add-to-cart-btn, .checkout-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover, .checkout-btn:hover {
+    background-color: #218838;
+}
+
+.shopping-cart {
+    border: 1px solid #e1e4e8;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.shopping-cart h2 {
+    text-align: center;
+}
+
+.checkout-form input[type="text"],
+.checkout-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
     </style>
 </head>
 <body>
-    <div class="product-list">
-        <div class="product">
-            <img src="fridge.jpg" alt="Product 1">
-            <h2>SHARB</h2>
-            <p>$10</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="heater.jpg" alt="Product 2">
-            <h2>FRESH</h2>
-            <p>$20</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="dishwasher.jpg" alt="Product 3">
-            <h2>BEKO</h2>
-            <p>$30</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="botgaz.jpg" alt="Product 3">
-            <h2>ZANUSSI</h2>
-            <p>$30</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-        
-    </div>
+    <header>
+        <h1 class="main-title">Welcome to Our Online Store</h1>
+    </header>
 
-    <div class="shopping-cart">
-        <h1 style="text-align: center;">Shopping Cart</h1>
-        <div id="shopping-cart-items"></div>
-
-        <div class="checkout-form">
-            <form onsubmit="checkout(event)">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
-                <input type="text" name="address" placeholder="Address" required>
-                <button style="margin-left: 650px;" type="submit">Checkout</button>
-            </form>
+    <section class="product-section">
+        <div class="product-list">
+            <!-- Repeat this block for each product -->
+            <div class="product">
+              <img src="fridge.jpg" alt="Product 1">
+              <h2>SHARB</h2>
+              <p>$10</p>
+              <button onclick="addToCart(this)">Add to Cart</button>
+          </div>
+          <div class="product">
+              <img src="heater.jpg" alt="Product 2">
+              <h2>FRESH</h2>
+              <p>$20</p>
+              <button onclick="addToCart(this)">Add to Cart</button>
+          </div>
+          <div class="product">
+              <img src="dishwasher.jpg" alt="Product 3">
+              <h2>BEKO</h2>
+              <p>$30</p>
+              <button onclick="addToCart(this)">Add to Cart</button>
+          </div>
+          <div class="product">
+              <img src="botgaz.jpg" alt="Product 3">
+              <h2>ZANUSSI</h2>
+              <p>$30</p>
+              <button onclick="addToCart(this)">Add to Cart</button>
+          </div>
+  
+            <!-- More products... -->
         </div>
-        </div>
+    </section>
 
+    <section class="shopping-cart-section">
+        <div class="shopping-cart">
+            <h2>Shopping Cart</h2>
+            <div id="shopping-cart-items"></div>
+
+            <div class="checkout-form">
+                <form onsubmit="checkout(event)">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <input type="text" name="address" placeholder="Address" required>
+                    <button class="checkout-btn" type="submit">Checkout</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include your JavaScript file here -->
     <script>
+      
         const cartItems = [];
 
         function addToCart(product) {
@@ -149,6 +201,7 @@
             cartItems.length = 0;
             updateCartItems();
         }
+    
     </script>
 </body>
 </html>

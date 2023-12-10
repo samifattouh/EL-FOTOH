@@ -4,56 +4,146 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElFotoh Website</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <style>
+
+      .slideshow-container {
+      width: 80%;
+      position: relative;
+      margin: auto;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+
       body {
-          font-family: Arial, sans-serif;
-      }
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
 
-      .container {
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 20px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-      }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-      .product img {
-          width: 250px;
-          height: 250px;
-      }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-      .product h2 {
-          margin: 10px 0;
-      }
+    .cloum {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
 
-      .product p {
-          margin: 10px 0;
-      }
+    .product {
+      background-color: #fff;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-      button {
-          padding: 10px;
-          margin: 10px 0;
-          background-color: #4CAF50;
-          color: white;
-          border: none;
-          border-radius: 3px;
-          cursor: pointer;
-      }
+    .product img {
+      max-width: 100%;
+      height: auto;
+    }
 
-      button:hover {
-          background-color: #45a049;
-      }
-      body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+    h3 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+
+    h4 {
+      color: #000000;
+    }
+
+    button {
+  background-color: rgb(16, 27, 61); /* corrected typo here */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
-/* Add your existing styles here */
 
+
+    button:hover {
+      background-color: #333;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      color: #333;
+    }
+
+    #cartItems {
+      list-style: none;
+      padding: 0;
+    }
+
+    #checkoutBtn {
+      background-color: #e47c26;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      display: block;
+      margin-top: 20px;
+    }
+
+    #checkoutBtn:hover {
+      background-color: #333;
+    }
+
+     
+
+/* Style for the footer section */
 .ecommerce-footer {
     background-color: #34495e;
     color: #ecf0f1;
@@ -61,6 +151,7 @@
     text-align: center;
 }
 
+/* Style for the footer content */
 .footer-content {
     display: flex;
     justify-content: space-around;
@@ -69,6 +160,7 @@
     gap: 20px;
 }
 
+/* Style for each footer section */
 .footer-section {
     text-align: left;
 }
@@ -89,9 +181,10 @@
 }
 
 .footer-section a:hover {
-    color: #e74c3c;
+    color: #e74c3c; /* Change the color on hover */
 }
 
+/* Style for social media icons */
 .socials {
     display: flex;
     gap: 10px;
@@ -104,12 +197,13 @@
 }
 
 .socials a:hover {
-    color: #0077b5; /* LinkedIn color */
+    color: #0077b5; /* Change the color on hover (LinkedIn color) */
 }
 
+/* Style for the footer bottom text */
 .footer-bottom {
     text-align: center;
-    color: #bdc3c7;
+    color: #ffffff;
     margin-top: 20px;
 }
 
@@ -139,7 +233,7 @@
   <nav>
     <div class="nav-container">
       <div class="logo">
-        <img src="mall-removebg-preview.png" alt="Your Logo" style="height: 60px;">
+        <img src="mall-removebg-preview.png" alt="Your Logo" style="height: 90px;">
       </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -178,14 +272,25 @@
     </div>
   </nav>
   
- 
-      <div style="text-align: center;">
-      <img src="offers.jpg" height="400" width="1450"/>
+ <br><br><br><br>
+  <div class="slideshow-container">
+    <div class="mySlides">
+      <img src="offers.jpg" alt="Slide 1">
     </div>
-      <div style="text-align: center;">
-      <h2><strong>Electronics</strong></h2>
-      <p></p>
+  
+    <div class="mySlides">
+      <img src="sale.jpg" alt="Slide 2">
     </div>
+  
+
+    <button onclick="changeSlide()">Next Slide</button>
+
+
+    <div class="container">
+      <div style="text-align: center;">
+        <h2><strong>Electronics</strong></h2>
+        <p></p>
+      </div>
       <div class="cloum">
         <div class="product">
           <img src="heater.jpg" height="200"/><br><br>
@@ -247,14 +352,15 @@
       <button id="add-to-cart">Add to Cart</button><br><br>
     </div>
   </div>
-            <div id="cartModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h3>Shopping Cart</h3>
-          <ul id="cartItems"></ul>
-          <a href="sign up.html"><button id="checkoutBtn">Checkout</button></a>
-        </div>
-      </div>
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Shopping Cart</h3>
+      <ul id="cartItems"></ul>
+      <a href="sign up.html"><button id="checkoutBtn">Checkout</button></a>
+    </div>
+  </div>
+</div>
 
     <footer class="ecommerce-footer">
       <div class="footer-content">
@@ -295,6 +401,35 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script>
+
+var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 10000); // Change slide every 2 seconds (adjust as needed)
+    }
+    function changeSlide() {
+      var slides = document.getElementsByClassName("mySlides");
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+
       const addToCartButton = document.getElementById('add-to-cart');
 
 addToCartButton.addEventListener('click', () => {
@@ -349,4 +484,6 @@ window.onscroll = function() {
   </script>
 </body>
 </html>
+
+
 
