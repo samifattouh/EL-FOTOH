@@ -1,5 +1,3 @@
-
-
 let button = document.getElementById('login')
 
 button.addEventListener('click', (e) => {
@@ -9,3 +7,13 @@ button.addEventListener('click', (e) => {
     console.log(password)
     e.preventDefault();
 })
+
+let carts = document.getElementsByClassName('cart')
+let items = []
+
+carts.forEach(cart => {
+    cart.addEventListener('click', (e) => {
+        items.push(cart.id)
+    })    
+});
+

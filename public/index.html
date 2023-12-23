@@ -9,6 +9,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
     <style>
 
       .slideshow-container {
@@ -48,7 +49,7 @@
     .cloum {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: center;
     }
 
     .product {
@@ -141,7 +142,6 @@
       background-color: #333;
     }
 
-     
 
 /* Style for the footer section */
 .ecommerce-footer {
@@ -166,7 +166,9 @@
 }
 
 .footer-section h3 {
-    margin-bottom: 10px;
+    font-size: 1.5rem; /* Increase font size for section headings */
+    margin-bottom: 10px; /* Add space below headings */
+    color: #ffffff; /* Section heading color */
 }
 
 .footer-section ul {
@@ -181,7 +183,7 @@
 }
 
 .footer-section a:hover {
-    color: #e74c3c; /* Change the color on hover */
+    color: #0077b5; /* Change the color on hover */
 }
 
 /* Style for social media icons */
@@ -233,7 +235,7 @@
   <nav>
     <div class="nav-container">
       <div class="logo">
-        <img src="mall-removebg-preview.png" alt="Your Logo" style="height: 90px;">
+        <img src="images/mall-removebg-preview.png" alt="Your Logo" style="height: 90px;">
       </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -275,83 +277,427 @@
  <br><br><br><br>
   <div class="slideshow-container">
     <div class="mySlides">
-      <img src="offers.jpg" alt="Slide 1">
+      <img src="images/offers.jpg" alt="Slide 1">
     </div>
   
     <div class="mySlides">
-      <img src="sale.jpg" alt="Slide 2">
+      <img src="images/sale.jpg" alt="Slide 2">
     </div>
   
 
-    <button onclick="changeSlide()">Next Slide</button>
+    <!--<button onclick="changeSlide()">Next Slide</button>-->
 
+    
+    <p id="db"></p>
 
     <div class="container">
       <div style="text-align: center;">
         <h2><strong>Electronics</strong></h2>
         <p></p>
       </div>
-      <div class="cloum">
-        <div class="product">
-          <img src="heater.jpg" height="200"/><br><br>
-            <h3><strong>FRESH</strong></h3>
-            <p>Electric Water Heater Relax 30 Liter 500014261 White.</p>
-            <h4><strong>Price: EGP 2394.00</strong></h4>
-            <button id="add-to-cart">Add to Cart</button><br><br>
+      <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="images/heater.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">FRESH</h5>
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                  <p>Electric Water Heater Relax 30 Liter 500014261 White.</p>
+                                </div>
+                                <!-- Product price-->
+                                EGP 2394.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="images/botgaz.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">ZANUSSI</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                  <p>Gas Stove 5 Burners Cool Max Auto Ignition Full Safety ZCG94396XA Silver</p>
+                                </div>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">EGP 16048</span>
+                                EGP 15084
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="images/dishwasher.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">BEKO</h5>
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                  <p>Dishwasher 45 cm 5 program 10 person LED Display. Half load time delay 10 OZ DVS05020S silver .</p>
+                                </div>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">EGP 18469</span>
+                                EGP 17469
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="images/koldairk.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">koldair</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                  <p>Turbo Cooling Water Dispenser KWD B2.1 Silver. </p>
+                                </div>
+                                <!-- Product price-->
+                                EGP 5749
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="images/air.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">LG</h5>
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                  <p>2.25 Hp Inverter Coolheat Split System Air Conditioner 1900.0 W S4-W18KL3AB White. </p>
+                                </div>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">EGP 39999</span>
+                                EGP 38999
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://i.imgur.com/PAKgIgI.jpeg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Samsung</h5>
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                  <p>43-Inch Full HD Smart TV With Built In Receiver 43T5300 / UA43T5300AUXEG Black. </p>
+                                </div>
+                                <!-- Product price-->
+                                EGP 10499
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://i.imgur.com/I7HEa1R.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">SHARP</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                  <p>Refrigerator Inverter Digital No Frost 450 Liter. Doors 2190.0 kW SJ-PV58G-BK Black.</p>
+                                </div>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">EGP 32350</span>
+                                EGP 31350
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" id="special_item_id" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="images/fan.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">FRESH</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                  <p>Shabah Wall Fan 240 volt 18 inch Wall-Fan-Multi-1 Red/Black. </p>
+                                </div>
+                                <!-- Product price-->
+                                EGP 1329
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="product">
-          <img src="botgaz.jpg" height="200"/><br><br>
-          <h3><strong>ZANUSSI</strong></h3>
-          <p>Gas Stove 5 Burners Cool Max Auto Ignition Full Safety ZCG94396XA Silver</p>
-          <h4><strong>Price: EGP 15084.00</strong></h4>
-          <button id="add-to-cart">Add to Cart</button><br><br>
-        </div>
-        <div class="product">
-          <img src="dishwasher.jpg" height="200"/><br><br>
-          <h3><strong>BEKO</strong></h3>
-          <p>Dishwasher 45 cm 5 program 10 person LED Display. Half load time delay 10 OZ DVS05020S silver .</p>
-          <h4><strong>Price: EGP 17469.00 </strong></h4>
-          <button id="add-to-cart">Add to Cart</button><br><br>
-        </div>
-        <div class="product">
-          <img src="fridge.jpg" height="200"/><br><br>
-              <h3><strong>SHARB</strong></h3>
-          <p>Refrigerator Inverter Digital No Frost 450 Liter. Doors 2190.0 kW SJ-PV58G-BK Black.</p>
-          <h4><strong>Price: EGP 31350.00</strong></h4>
-          <button id="add-to-cart">Add to Cart</button><br><br><br><br>
-        </div>
+    </section>
+    <header style="height: auto;">
+      <img src="images/visa.jpg" alt="Visa Image" style="width: 100%; height: 450px; display: block; margin: 0 auto;">
+  </header>
+    
+    <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+          <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Product image-->
+                      <img class="card-img-top" src="images/heater.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">FRESH</h5>
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>Electric Water Heater Relax 30 Liter 500014261 White.</p>
+                              </div>
+                              <!-- Product price-->
+                              EGP 2394.00
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Sale badge-->
+                      <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                      <!-- Product image-->
+                      <img class="card-img-top" src="images/botgaz.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">ZANUSSI</h5>
+                              <!-- Product reviews-->
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>Gas Stove 5 Burners Cool Max Auto Ignition Full Safety ZCG94396XA Silver</p>
+                              </div>
+                              <!-- Product price-->
+                              <span class="text-muted text-decoration-line-through">EGP 16048</span>
+                              EGP 15084
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Sale badge-->
+                      <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                      <!-- Product image-->
+                      <img class="card-img-top" src="images/dishwasher.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">BEKO</h5>
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>Dishwasher 45 cm 5 program 10 person LED Display. Half load time delay 10 OZ DVS05020S silver .</p>
+                              </div>
+                              <!-- Product price-->
+                              <span class="text-muted text-decoration-line-through">EGP 18469</span>
+                              EGP 17469
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Product image-->
+                      <img class="card-img-top" src="images/koldairk.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">koldair</h5>
+                              <!-- Product reviews-->
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>Turbo Cooling Water Dispenser KWD B2.1 Silver. </p>
+                              </div>
+                              <!-- Product price-->
+                              EGP 5749
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Sale badge-->
+                      <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                      <!-- Product image-->
+                      <img class="card-img-top" src="images/air.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">LG</h5>
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>2.25 Hp Inverter Coolheat Split System Air Conditioner 1900.0 W S4-W18KL3AB White. </p>
+                              </div>
+                              <!-- Product price-->
+                              <span class="text-muted text-decoration-line-through">EGP 39999</span>
+                              EGP 38999
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Product image-->
+                      <img class="card-img-top" src="https://i.imgur.com/PAKgIgI.jpeg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">Samsung</h5>
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>43-Inch Full HD Smart TV With Built In Receiver 43T5300 / UA43T5300AUXEG Black. </p>
+                              </div>
+                              <!-- Product price-->
+                              EGP 10499
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Sale badge-->
+                      <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                      <!-- Product image-->
+                      <img class="card-img-top" src="https://i.imgur.com/I7HEa1R.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">SHARP</h5>
+                              <!-- Product reviews-->
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>Refrigerator Inverter Digital No Frost 450 Liter. Doors 2190.0 kW SJ-PV58G-BK Black.</p>
+                              </div>
+                              <!-- Product price-->
+                              <span class="text-muted text-decoration-line-through">EGP 32350</span>
+                              EGP 31350
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" id="special_item_id" href="#">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Product image-->
+                      <img class="card-img-top" src="images/fan.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">FRESH</h5>
+                              <!-- Product reviews-->
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>Shabah Wall Fan 240 volt 18 inch Wall-Fan-Multi-1 Red/Black. </p>
+                              </div>
+                              <!-- Product price-->
+                              EGP 1329
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" href="#">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-      <br><br>
-      <div class="cloum">
-      <div class="product">
-        <img src="TV.jpg" height="250"/><br>
-        <h3><strong>Samsung</strong></h3>
-        <p>43-Inch Full HD Smart TV With Built In Receiver 43T5300 / UA43T5300AUXEG Black. </p>
-        <h4><strong>Price: EGP 10499.00</strong></h4>
-        <button id="add-to-cart">Add to Cart</button><br><br>
-    </div>
-    <div class="product">
-      <img src="koldairk.jpg" height="250"/><br><br>
-        <h3><strong>koldair</strong></h3>
-      <p>Turbo Cooling Water Dispenser KWD B2.1 Silver. </p>
-      <h4><strong>Price: EGP 5749.00 </strong></h4>
-      <button id="add-to-cart">Add to Cart</button><br><br>
-    </div>
-    <div class="product">
-      <img src="air.jpg" height="250"/><br><br>
-        <h3><strong>LG</strong></h3>
-      <p>2.25 Hp Inverter Coolheat Split System Air Conditioner 1900.0 W S4-W18KL3AB White. </p>
-      <h4><strong>Price: EGP 38999.00</strong></h4>
-      <button id="add-to-cart">Add to Cart</button><br><br>
-    </div>
-    <div class="product">
-      <img src="fan.jpg" height="250"/><br><br>
-        <h3><strong>FRESH</strong></h3>
-      <p>Shabah Wall Fan 240 volt 18 inch Wall-Fan-Multi-1 Red/Black. </p>
-      <h4><strong>Price: EGP 1329.00</strong></h4>
-      <button id="add-to-cart">Add to Cart</button><br><br>
-    </div>
-  </div>
+  </section>
+<header>
+  <img src="images/offer_noon.jpg" alt="Sale Image" class="header-image">
+</header>
   <div id="cartModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -392,14 +738,16 @@
       <div class="footer-bottom">
           <p>&copy; <span id="current-year"></span> Your E-Commerce Website. All rights reserved.</p>
       </div>
-      <button class="scroll-to-top" onclick="scrollToTop()">Scroll to Top</button>
+      
   </footer>
   
-
-
+  <button class="scroll-to-top" onclick="scrollToTop()">Scroll to Top</button>
+  
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script src="connect.js"></script>
     <script>
 
 var slideIndex = 0;
@@ -416,7 +764,7 @@ var slideIndex = 0;
         slideIndex = 1;
       }
       slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 10000); // Change slide every 2 seconds (adjust as needed)
+      setTimeout(showSlides, 3000); // Change slide every 2 seconds (adjust as needed)
     }
     function changeSlide() {
       var slides = document.getElementsByClassName("mySlides");
@@ -468,7 +816,6 @@ function scrollToTop() {
         behavior: "smooth"
     });
 }
-
 document.getElementById("current-year").textContent = new Date().getFullYear();
 
 // Show/Hide scroll-to-top button based on scroll position
@@ -480,6 +827,7 @@ window.onscroll = function() {
         scrollButton.style.display = "none";
     }
 };
+
 
   </script>
 </body>
