@@ -664,6 +664,7 @@ header {
 -->
 
 
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -755,7 +756,7 @@ header {
         <p>$30.00</p>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-      <!-- Add more products as needed -->
+      <!-- Add more products as needed 
     </div>
 
     <div class="cart">
@@ -828,5 +829,161 @@ header {
   </script>
 </body>
 </html>
+-->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        /* Cart Page */
+.cart-page {
+    width: 80%;
+    margin: 0 auto;
+}
 
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.cart-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 15px;
+}
+
+.product-card {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    background-color: #e1e1e1;
+    margin-bottom: 10px;
+}
+
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    margin-right: 10px;
+}
+
+.product-price {
+    margin-right: 10px;
+}
+
+.quantity-input {
+    width: 60px;
+}
+
+.remove-btn {
+    cursor: pointer;
+    background-color: #e1e1e1;
+    border: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: #d1d1d1;
+}
+
+.total-price {
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Shopping Cart</h1>
+        </div>
+
+        <div class="product-card">
+            <img src="https://via.placeholder.com/100" alt="Product Image" class="product-image">
+            <div class="product-details">
+                <h2>Product Title</h2>
+                <div class="quantity-container">
+                    <input type="number" value="1" class="quantity-input">
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+            <div class="product-price">$100</div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://via.placeholder.com/100" alt="Product Image" class="product-image">
+            <div class="product-details">
+                <h2>Product Title</h2>
+                <div class="quantity-container">
+                    <input type="number" value="1" class="quantity-input">
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+            <div class="product-price">$200</div>
+        </div>
+
+        <button class="checkout-btn">Checkout</button>
+    </div>
+    <script>
+      // Function to update the quantity input
+function updateQuantity(event) {
+    let quantityInput = event.target;
+    let currentQuantity = quantityInput.value;
+
+    // Check if the input value is a number and is greater than 0
+    if (!isNaN(currentQuantity) && currentQuantity > 0) {
+        // Update the total price
+        updateTotalPrice(quantityInput);
+    } else {
+        quantityInput.value = 1;
+    }
+}
+
+// Function to update the total price
+function updateTotalPrice(quantityInput) {
+    let productCard = quantityInput.closest('.product-card');
+    let priceElement = productCard.querySelector('.product-price');
+    let price = parseFloat(priceElement.textContent.substring(1));
+    let quantity = quantityInput.value;
+
+    // Update the total price text
+    priceElement.textContent = '$' + (price * quantity).toFixed(2);
+}
+
+// Function to remove a product from the cart
+function removeProduct(event) {
+    let removeButton = event.target;
+    let productCard = removeButton.closest('.product-card');
+
+    // Remove the product card from the DOM
+    productCard.remove();
+}
+
+// Attach event listeners to the quantity inputs and remove buttons
+document.querySelectorAll('.quantity-input').forEach(input => {
+    input.addEventListener('change', updateQuantity);
+});
+
+document.querySelectorAll('.remove-btn').forEach(button => {
+    button.addEventListener('click', removeProduct);
+});
+    </script>
+</body>
+</html>

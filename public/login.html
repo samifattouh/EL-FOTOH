@@ -1,4 +1,4 @@
-<!--
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,87 +8,112 @@
     
     <style>
         body {
-            background-image: url(about.jpg);
-            background-size:95%;
-            background-position: center;
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
-}
+        }
 
-
-    
         .container {
-            background-color: rgba(255, 255, 255, 0.708); /* Semi-transparent white background */
-            width: 300px;
-            padding: 15px;
-            border-radius: 5px;
+            background-color: #fff;
+            border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+        }
 
-    
-        .container h1 {
-            text-align: center;
+        .photo {
+            width: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        h1 {
             color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
-    
-        .container form {
-            display: flex;
-            flex-direction: column;
+
+        .input-field {
+            margin-bottom: 20px;
+            position: relative;
         }
-    
-        .container form input[type="text"],
-        .container form input[type="password"] {
+
+        .input-field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .input-field input {
+            width: 100%;
             padding: 10px;
-            margin: 10px 0;
+            font-size: 16px;
             border: 1px solid #ccc;
-            border-radius: 3px;
-            font-size: 16px;
-            height: 40px;
+            border-radius: 5px;
         }
-    
-        .container form button[type="submit"] {
-            padding: 10px;
-            margin: 10px 0;
-            background-color: #3498db;
-            color: white;
+
+        .remember-me {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .remember-me label {
+            color: #555;
+        }
+
+        .sign-in-btn button {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: #fff;
+            font-size: 18px;
             border: none;
-            border-radius: 3px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            height: 40px;
-            transition: background-color 0.3s;
         }
-    
-        .container form button[type="submit"]:hover {
-            background-color: #2980b9;
+
+        .sign-in-btn button:hover {
+            background-color: #555;
         }
-    
-        .container p {
-            text-align: center;
-            margin-top: 10px;
-        }
-    
-        .container p a {
-            color: #3498db;
-            text-decoration: none;
-        }
+
     </style>
     
 </head>
 <body>
+
     <div class="container">
-        <a href="index.html"><img src="left.png" style="height: 30px;"></a>
-        <h1>Login</h1>
-        <form id="login-form">
-            <input type="text" id="login-username" placeholder="Username" required>
-            <input type="password" id="login-password" placeholder="Password" required>
-            <button type="submit" id="login-button" disabled>Login</button>
-        </form>
-        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        <div class="login-section">
+            <a href="index.html"><img src="images/left.png" style="height: 30px;"></a>
+            <img src="images/mall.png" alt="Photo" class="photo">
+            <h1>Login</h1>
+            <form id="login-form">
+                <div class="input-field">
+                    <label for="username">Username</label>
+                    <input type="text" id="login-username" placeholder="Username" required>
+                </div>
+                <div class="input-field">
+                    <label for="password">Password</label>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                
+                <div class="sign-in-btn">
+                    <button type="submit" id="login-button" disabled>Login</button>
+                </div>
+            </form>
+            <div class="forgot-password">
+                <a href="#">Forgot password?</a>
+            </div>
+            <div class="sign-up">
+                <a href="signup.html">Sign up</a>
+            </div>
+            <div id="feedback" style="display: none;"></div> <!-- Feedback element -->
+        </div>
     </div>
 
     <script>
@@ -148,7 +173,7 @@
 </html>
 
 
--->
+
 
 
 
@@ -374,155 +399,9 @@
 </html>
 -->
 
+
+
 <!--
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oMMotW+XOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>Login page</title>
-        <style>
-             /* custom.css */
-.card {
-    background-color: #f8f9fa;
-    border: 1px solid #f8f9fa;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    color: #4a5568;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-control {
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    padding: 8px 12px;
-    font-size: 14px;
-}
-
-.btn {
-    background-color: #6875f5;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.btn:hover {
-    background-color: #5a67d8;
-}
-        </style>
-    </head>
-    <body>
-        <section class="vh-100">
-            <div class="container-fluid h-custom">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-9 col-lg-6 col-xl-5">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                    class="img-fluid" alt="Sample image">
-                </div>
-                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form>
-                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                    <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-                    <button type="button" class="btn btn-primary btn-floating mx-1">
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
-        
-                    <button type="button" class="btn btn-primary btn-floating mx-1">
-                        <i class="fab fa-twitter"></i>
-                    </button>
-        
-                    <button type="button" class="btn btn-primary btn-floating mx-1">
-                        <i class="fab fa-linkedin-in"></i>
-                    </button>
-                    </div>
-        
-                    <div class="divider d-flex align-items-center my-4">
-                    <p class="text-center fw-bold mx-3 mb-0">Or</p>
-                    </div>
-        
-                    <!-- Email input 
-                    <div class="form-outline mb-4">
-                    <input type="email" id="form3Example3" class="form-control form-control-lg"
-                        placeholder="Enter a valid email address" />
-                    <label class="form-label" for="form3Example3">Email address</label>
-                    </div>
-        
-                    <!-- Password input 
-                    <div class="form-outline mb-3">
-                    <input type="password" id="form3Example4" class="form-control form-control-lg"
-                        placeholder="Enter password" />
-                    <label class="form-label" for="form3Example4">Password</label>
-                    </div>
-        
-                    <div class="d-flex justify-content-between align-items-center">
-                    <!-- Checkbox 
-                    <div class="form-check mb-0">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                        <label class="form-check-label" for="form2Example3">
-                        Remember me
-                        </label>
-                    </div>
-                    <a href="#!" class="text-body">Forgot password?</a>
-                    </div>
-        
-                    <div class="text-center text-lg-start mt-4 pt-2">
-                    <button type="button" class="btn btn-primary btn-lg"
-                        style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                    <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                        class="link-danger">Register</a></p>
-                    </div>
-        
-                </form>
-                </div>
-            </div>
-            </div>
-            <div
-            class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-            <!-- Copyright 
-            <div class="text-white mb-3 mb-md-0">
-                Copyright © 2020. All rights reserved.
-            </div>
-            <!-- Copyright -->
-        
-            <!-- Right 
-            <div>
-                <a href="#!" class="text-white me-4">
-                <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#!" class="text-white me-4">
-                <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#!" class="text-white me-4">
-                <i class="fab fa-google"></i>
-                </a>
-                <a href="#!" class="text-white">
-                <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-            <!-- Right 
-            </div>
-        </section>
-    </body>
-</html>
--->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -635,7 +514,7 @@
             <div class="sign-up">
                 <a href="signup.html">Sign up</a>
             </div>
-            <div id="feedback" style="display: none;"></div> <!-- Feedback element -->
+            <div id="feedback" style="display: none;"></div> <!-- Feedback element 
         </div>
     </div>
     <script>
@@ -689,3 +568,4 @@
     </script>
 </body>
 </html>
+-->

@@ -1,70 +1,69 @@
+
+const express = require('express');
+const mysql = require('mysql2');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const express = require('express')
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 app.use(cors());
-
-
-const mysql = require('mysql2');
+app.use(bodyParser.json());
 
 // Create a connection pool
 const pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
   password: 'pwiw90',
-  database: 'test',
+  database: 'ecommerce',
   connectionLimit: 10
 });
 
-let RESULTS = ''
+let RESULTS = '';
 
-// Establish a connection from the pool
-pool.getConnection((err, connection) => {
-  if (err) {
-    console.error('Error connecting to MySQL:', err);
+// Fetching product data
+pool.query('SELECT * FROM product', (queryError, results) => {
+  if (queryError) {
+    console.error('Error fetching products:', queryError);
     return;
   }
+  RESULTS = results;
+});
 
-  console.log('Connected to MySQL');
+app.get('/fetchData', (req, res) => {
+  res.send(RESULTS);
+});
 
-  // Execute a simple SELECT query
-  connection.query('SELECT * FROM product', (queryError, results) => {
-    // Release the connection when done
-    connection.release();
+app.post('/login_api', (req, res) => {
+  const { username, password } = req.body;
 
-    if (queryError) {
-      console.error('Error executing query:', queryError);
-      return;
+  pool.query(
+    'SELECT * FROM Customer WHERE Email = ? AND Password = ?',
+    [Email, password],
+    (error, results) => {
+      if (error) {
+        res.status(500).send('Error checking credentials');
+        return;
+      }
+
+      if (results.length > 0) {
+        res.send('Login successful');
+      } else {
+        res.status(401).send('Incorrect username or password');
+      }
     }
-    RESULTS = results
-    // Process the query results here
-    console.log('Query results:', results);
-  });
-});
-
-// Close the connection pool when your application exits
-process.on('SIGINT', () => {
-  pool.end((err) => {
-    if (err) {
-      console.error('Error closing the MySQL pool:', err);
-    }
-    process.exit(0);
-  });
-});
-
-app.get('/fetchData', async (req, res) => {
-  res.send(RESULTS)
-});
-
-
-app.post('/login_api', async (req, res) => {
-  console.log(req);
-  // result = `select * from Customer where username = 'req.username'`
+  );
 });
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+// Close the connection pool when the application exits
+process.on('SIGINT', () => {
+  pool.end(err => {
+    if (err) console.error('Error closing the MySQL pool:', err);
+    process.exit(0);
+  });
+});
