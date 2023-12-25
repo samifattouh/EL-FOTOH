@@ -128,7 +128,7 @@
 
     #checkoutBtn {
       background-color: #e47c26;
-      color: #fff;
+      color: #000000;
       padding: 10px 20px;
       border: none;
       cursor: pointer;
@@ -141,7 +141,7 @@
     #checkoutBtn:hover {
       background-color: #333;
     }
-
+  
 
 /* Style for the footer section */
 .ecommerce-footer {
@@ -168,16 +168,17 @@
 .footer-section h3 {
     font-size: 1.5rem; /* Increase font size for section headings */
     margin-bottom: 10px; /* Add space below headings */
-    color: #ffffff; /* Section heading color */
+    color: #fffcfc; /* Section heading color */
 }
 
 .footer-section ul {
+  
     list-style: none;
     padding: 0;
 }
 
 .footer-section a {
-    color: #ecf0f1;
+    color: #000000;
     text-decoration: none;
     transition: 0.3s;
 }
@@ -193,7 +194,7 @@
 }
 
 .socials a {
-    color: #ecf0f1;
+    color: #000000;
     text-decoration: none;
     transition: 0.3s;
 }
@@ -227,7 +228,90 @@
     background-color: #2980b9;
 }
 
-  
+/* Style for the cart modal */
+#cartModal {
+    
+    margin-left: 1100px;
+    top: 0;
+    right: 0; /* Set to 0 for right alignment */
+    width: 420px; /* Set the width as needed */
+    height: 100%;
+    background-color: #34495e;
+}
+.photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: block;
+    object-fit: cover; /* Ensure the entire image is visible in the circular frame */
+}
+
+
+        
+.cart-content {
+    background-color: #fff;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Close button in the cart modal */
+.close {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+/* ... (other styles remain the same) */
+
+/* Style for the cart items in the modal */
+.cart-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-item-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-item-price {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Style for the total amount in the cart modal */
+.total-amount {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for the checkout button */
+#checkoutBtn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #34495e;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 </head>
@@ -264,13 +348,13 @@
         </select>
       </div>
       <div class="cart">
-        <a href="cart.html">Cart <span id="cartCounter" class="badge">0</span></a>
-        
-      </div>
-      <div class="search-bar">
-        <input type="text" placeholder="Search">
-        <button id="search-button">Search</button>
-      </div>
+        <a href="#" onclick="showCart()">Cart <span id="cartCounter" class="badge">0</span></a>
+    </div>
+    
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search">
+      <button id="searchButton" onclick="searchProducts()">Search</button>
+    </div>
     </div>
   </nav>
   
@@ -316,8 +400,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                        </div>
+                          <div class="text-center">
+                              <a class="btn btn-outline-dark mt-auto" onclick="addToCart('FRESH Electric Water Heater', '2394.00')">Add to cart</a>
+                          </div>
+                      </div>
                     </div>
                 </div>
                 <div class="col mb-5">
@@ -342,8 +428,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                        </div>
+                          <div class="text-center">
+                              <a class="btn btn-outline-dark mt-auto addToCart" onclick="addToCart('ZANUSSI Gas Stove 5 Burners', '16048.00')" >Add to cart</a>
+                          </div>
+                      </div>
                     </div>
                 </div>
                 <div class="col mb-5">
@@ -367,7 +455,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="addToCart('BEKO Dishwasher 10 person', '17469.00')" >Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -390,7 +478,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="addToCart('koldair Turbo Cooling Water', '5749.00')">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -415,7 +503,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="addToCart('LG 2.25 Hp Inverter Air Conditioner', '38999.00')">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -437,7 +525,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="addToCart('Samsung 43-Inch Full HD Smart TV', '10499.00')">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -463,7 +551,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" id="special_item_id" href="#">Add to cart</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" onclick="addToCart('SHARP Refrigerator Inverter Digital No Frost 450 Liter.', '31350.00')">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -486,7 +574,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" href="#">Add to cart</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" onclick="addToCart('Samsung 43-Inch Full HD Smart TV', '10499.00')">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -503,22 +591,22 @@
               <div class="col mb-5">
                   <div class="card h-100">
                       <!-- Product image-->
-                      <img class="card-img-top" src="images/heater.jpg" alt="..." />
+                      <img class="card-img-top" src="images/micro.jpg" alt="..." />
                       <!-- Product details-->
                       <div class="card-body p-4">
                           <div class="text-center">
                               <!-- Product name-->
-                              <h5 class="fw-bolder">FRESH</h5>
+                              <h5 class="fw-bolder">SHARP</h5>
                               <div class="d-flex justify-content-center small text-warning mb-2">
-                                <p>Electric Water Heater Relax 30 Liter 500014261 White.</p>
+                                <p>Stainless Steel Microwave Oven with Grill 34.0 L 1000.0 W R77AT(ST) Silver/Black.</p>
                               </div>
                               <!-- Product price-->
-                              EGP 2394.00
+                              EGP 6690
                           </div>
                       </div>
                       <!-- Product actions-->
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="addToCart('SHARP Microwave Oven with Grill 34.0 L', '6690.00')">Add to cart</a></div>
                       </div>
                   </div>
               </div>
@@ -527,24 +615,24 @@
                       <!-- Sale badge-->
                       <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                       <!-- Product image-->
-                      <img class="card-img-top" src="images/botgaz.jpg" alt="..." />
+                      <img class="card-img-top" src="images/dfaya.jpg" alt="..." />
                       <!-- Product details-->
                       <div class="card-body p-4">
                           <div class="text-center">
                               <!-- Product name-->
-                              <h5 class="fw-bolder">ZANUSSI</h5>
+                              <h5 class="fw-bolder">zada</h5>
                               <!-- Product reviews-->
                               <div class="d-flex justify-content-center small text-warning mb-2">
-                                <p>Gas Stove 5 Burners Cool Max Auto Ignition Full Safety ZCG94396XA Silver</p>
+                                <p>Halogen Heater 1500 W ZQH-110 Black</p>
                               </div>
                               <!-- Product price-->
-                              <span class="text-muted text-decoration-line-through">EGP 16048</span>
-                              EGP 15084
+                              <span class="text-muted text-decoration-line-through">EGP 550</span>
+                              EGP 325
                           </div>
                       </div>
                       <!-- Product actions-->
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="addToCart('zada Halogen Heater', '325.00')">Add to cart</a></div>
                       </div>
                   </div>
               </div>
@@ -553,93 +641,46 @@
                       <!-- Sale badge-->
                       <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                       <!-- Product image-->
-                      <img class="card-img-top" src="images/dishwasher.jpg" alt="..." />
-                      <!-- Product details-->
-                      <div class="card-body p-4">
-                          <div class="text-center">
-                              <!-- Product name-->
-                              <h5 class="fw-bolder">BEKO</h5>
-                              <div class="d-flex justify-content-center small text-warning mb-2">
-                                <p>Dishwasher 45 cm 5 program 10 person LED Display. Half load time delay 10 OZ DVS05020S silver .</p>
-                              </div>
-                              <!-- Product price-->
-                              <span class="text-muted text-decoration-line-through">EGP 18469</span>
-                              EGP 17469
-                          </div>
-                      </div>
-                      <!-- Product actions-->
-                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col mb-5">
-                  <div class="card h-100">
-                      <!-- Product image-->
-                      <img class="card-img-top" src="images/koldairk.jpg" alt="..." />
-                      <!-- Product details-->
-                      <div class="card-body p-4">
-                          <div class="text-center">
-                              <!-- Product name-->
-                              <h5 class="fw-bolder">koldair</h5>
-                              <!-- Product reviews-->
-                              <div class="d-flex justify-content-center small text-warning mb-2">
-                                <p>Turbo Cooling Water Dispenser KWD B2.1 Silver. </p>
-                              </div>
-                              <!-- Product price-->
-                              EGP 5749
-                          </div>
-                      </div>
-                      <!-- Product actions-->
-                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col mb-5">
-                  <div class="card h-100">
-                      <!-- Sale badge-->
-                      <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                      <!-- Product image-->
-                      <img class="card-img-top" src="images/air.jpg" alt="..." />
-                      <!-- Product details-->
-                      <div class="card-body p-4">
-                          <div class="text-center">
-                              <!-- Product name-->
-                              <h5 class="fw-bolder">LG</h5>
-                              <div class="d-flex justify-content-center small text-warning mb-2">
-                                <p>2.25 Hp Inverter Coolheat Split System Air Conditioner 1900.0 W S4-W18KL3AB White. </p>
-                              </div>
-                              <!-- Product price-->
-                              <span class="text-muted text-decoration-line-through">EGP 39999</span>
-                              EGP 38999
-                          </div>
-                      </div>
-                      <!-- Product actions-->
-                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col mb-5">
-                  <div class="card h-100">
-                      <!-- Product image-->
-                      <img class="card-img-top" src="https://i.imgur.com/PAKgIgI.jpeg" alt="..." />
+                      <img class="card-img-top" src="images/washing.jpg" alt="..." />
                       <!-- Product details-->
                       <div class="card-body p-4">
                           <div class="text-center">
                               <!-- Product name-->
                               <h5 class="fw-bolder">Samsung</h5>
                               <div class="d-flex justify-content-center small text-warning mb-2">
-                                <p>43-Inch Full HD Smart TV With Built In Receiver 43T5300 / UA43T5300AUXEG Black. </p>
+                                <p>Washing Machine With Hygiene Steam, Digital Inverter Technology, Drum Clean 9.0 kg 2300.0 W WW90T4040CX1AS Grey .</p>
                               </div>
                               <!-- Product price-->
-                              EGP 10499
+                              <span class="text-muted text-decoration-line-through">EGP 32500</span>
+                              EGP 28999
                           </div>
                       </div>
                       <!-- Product actions-->
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="addToCart('Samsung Washing Machine Digital Inverter', '28999.00')">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Product image-->
+                      <img class="card-img-top" src="images/coffemaker.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">Mienta</h5>
+                              <!-- Product reviews-->
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>Uno 1 Cup American Coffee Maker 0.5 L 300 W CM31416A Black. </p>
+                              </div>
+                              <!-- Product price-->
+                              EGP 557
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="addToCart('Mienta American Coffee Maker 0.5 L', '557.00')">Add to cart</a></div>
                       </div>
                   </div>
               </div>
@@ -648,65 +689,142 @@
                       <!-- Sale badge-->
                       <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                       <!-- Product image-->
-                      <img class="card-img-top" src="https://i.imgur.com/I7HEa1R.jpg" alt="..." />
+                      <img class="card-img-top" src="images/kenwood.jpg" alt="..." />
                       <!-- Product details-->
                       <div class="card-body p-4">
                           <div class="text-center">
                               <!-- Product name-->
-                              <h5 class="fw-bolder">SHARP</h5>
-                              <!-- Product reviews-->
+                              <h5 class="fw-bolder">KENWOOD</h5>
                               <div class="d-flex justify-content-center small text-warning mb-2">
-                                <p>Refrigerator Inverter Digital No Frost 450 Liter. Doors 2190.0 kW SJ-PV58G-BK Black.</p>
+                                <p>Ceramic Steam Iron 350.0 ml 2600.0 W STP70.000WG Green. </p>
                               </div>
                               <!-- Product price-->
-                              <span class="text-muted text-decoration-line-through">EGP 32350</span>
-                              EGP 31350
+                              <span class="text-muted text-decoration-line-through">EGP 2699</span>
+                              EGP 1599
                           </div>
                       </div>
                       <!-- Product actions-->
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" id="special_item_id" href="#">Add to cart</a></div>
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="addToCart('KENWOOD Ceramic Steam Iron 350.0 ml', '1599.00')">Add to cart</a></div>
                       </div>
                   </div>
               </div>
               <div class="col mb-5">
                   <div class="card h-100">
                       <!-- Product image-->
-                      <img class="card-img-top" src="images/fan.jpg" alt="..." />
+                      <img class="card-img-top" src="images/5alat.jpg" alt="..." />
                       <!-- Product details-->
                       <div class="card-body p-4">
                           <div class="text-center">
                               <!-- Product name-->
-                              <h5 class="fw-bolder">FRESH</h5>
-                              <!-- Product reviews-->
+                              <h5 class="fw-bolder">BLACK+DECKER</h5>
                               <div class="d-flex justify-content-center small text-warning mb-2">
-                                <p>Shabah Wall Fan 240 volt 18 inch Wall-Fan-Multi-1 Red/Black. </p>
+                                <p>Blender And Smoothie Maker With Glass Jar 1.75 L 700 W BX650G-B5 Black/Silver. </p>
                               </div>
                               <!-- Product price-->
-                              EGP 1329
+                              EGP 2189
                           </div>
                       </div>
                       <!-- Product actions-->
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" href="#">Add to cart</a></div>
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="addToCart('BLACK+DECKER Blender And Smoothie Maker', '2189.00')">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Sale badge-->
+                      <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                      <!-- Product image-->
+                      <img class="card-img-top" src="images/fans.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">TORNADO</h5>
+                              <!-- Product reviews-->
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>Ceiling-Fan-Set of 3, 220V 20.4 kg TCF56WW White.</p>
+                              </div>
+                              <!-- Product price-->
+                              <span class="text-muted text-decoration-line-through">EGP 4289</span>
+                              EGP 3499
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" onclick="addToCart('TORNADO Ceiling-Fan-Set of 3', '3499.00')">Add to cart</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col mb-5">
+                  <div class="card h-100">
+                      <!-- Product image-->
+                      <img class="card-img-top" src="images/vacuum.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder">Panasonic</h5>
+                              <!-- Product reviews-->
+                              <div class="d-flex justify-content-center small text-warning mb-2">
+                                <p>Canister Vacuum Cleaner 2100W 6.0 L 2100.0 W MCCG715K Black. </p>
+                              </div>
+                              <!-- Product price-->
+                              EGP 6299
+                          </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto cart" onclick="addToCart('Panasonic Vacuum Cleaner 2100W', '6299.00')">Add to cart</a></div>
                       </div>
                   </div>
               </div>
           </div>
       </div>
   </section>
-<header>
-  <img src="images/offer_noon.jpg" alt="Sale Image" class="header-image">
-</header>
-  <div id="cartModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3>Shopping Cart</h3>
-      <ul id="cartItems"></ul>
-      <a href="sign up.html"><button id="checkoutBtn">Checkout</button></a>
+
+  <img src="images/noooooooooon.avif" alt="Sale Image" class="header-image">
+
+<br><br><br>
+<div id="cartModal" class="modal">
+  <div class="cart-content">
+    <span class="close" onclick="closeCartModal()">&times;</span>
+
+    <!-- Circular photo at the top of the cart modal -->
+    <img src="images/mall.png" alt="Your Cart Photo" class="photo">
+
+    <h2>Your Cart</h2>
+    <ul id="cartItems" class="cart-items">
+        <!-- Cart items will be dynamically added here -->
+    </ul>
+    <div class="total-amount">
+        <span Total: id="totalAmount">0</span>
+    </div>
+    <button id="checkoutBtn" class="btn btn-dark">Checkout</button>
+    <hr><hr>
+
+    <!-- Checkout Section (Initially Hidden) -->
+    <div id="checkoutSection" class="checkout-section" style="display: none;">
+        <h2>Checkout</h2>
+        <ul id="checkoutItems" class="checkout-items">
+            <!-- Checkout items will be dynamically added here -->
+        </ul>
+        <label>Name:<input type="text" style="margin-left: 58px;"></label><br><br>
+        <label>E-mail:<input type="email" style="margin-left: 57px;"></label><br><br>
+        <label>Phone number:<input type="number"></label><br><br>
+        <label>Address:<input type="text" style="margin-left: 45px;"></label><br><br>
+        
+        <button id="confirmPurchaseBtn" class="btn btn-success">Confirm Order</button>
     </div>
   </div>
 </div>
+
+
+
+
+<!-- ... (your existing HTML) -->
+
 
     <footer class="ecommerce-footer">
       <div class="footer-content">
@@ -736,7 +854,7 @@
           </div>
       </div>
       <div class="footer-bottom">
-          <p>&copy; <span id="current-year"></span> Your E-Commerce Website. All rights reserved.</p>
+          <p>&copy; <span id="current-year"></span> EL-Fotoh Website.</p>
       </div>
       
   </footer>
@@ -749,66 +867,100 @@
     <script src="main.js"></script>
     <script src="connect.js"></script>
     <script>
-
 var slideIndex = 0;
-    showSlides();
+var cartItems = [];
 
-    function showSlides() {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {
-        slideIndex = 1;
-      }
-      slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 3000); // Change slide every 2 seconds (adjust as needed)
-    }
-    function changeSlide() {
-      var slides = document.getElementsByClassName("mySlides");
-      for (var i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {
-        slideIndex = 1;
-      }
-      slides[slideIndex - 1].style.display = "block";
+function updateCartModal() {
+    var cartList = document.getElementById("cartItems");
+    var totalAmountElement = document.getElementById("totalAmount");
+
+    cartList.innerHTML = "";
+    var totalAmount = 0;
+
+    for (var i = 0; i < cartItems.length; i++) {
+        var listItem = document.createElement("li");
+        listItem.textContent = cartItems[i].name + " - EGP " + cartItems[i].price + " - " + cartItems[i].country;
+
+        // Add a remove button for each item
+        var removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.onclick = createRemoveHandler(i); // Create a closure to capture the index
+        listItem.appendChild(removeButton);
+
+        cartList.appendChild(listItem);
+
+        totalAmount += parseFloat(cartItems[i].price);
     }
 
-      const addToCartButton = document.getElementById('add-to-cart');
+    totalAmountElement.textContent = "Total: EGP " + totalAmount.toFixed(2);
+    document.getElementById("cartCounter").textContent = cartItems.length;
+}
 
-addToCartButton.addEventListener('click', () => {
-  const product = {
-      name: 'Product Name',
-      description: 'Product Description',
-      price: 100,
-      quantity: 1
-  };
+function createRemoveHandler(index) {
+    // This function returns a closure to capture the index
+    return function () {
+        removeFromCart(index);
+    };
+}
 
-  // Retrieve the cart from localStorage.
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+function removeFromCart(index) {
+    cartItems.splice(index, 1);
+    updateCartModal();
+}
 
-  // Check if the product is already in the cart.
-  const existingProductIndex = cart.findIndex(item => item.name === product.name);
+function showSlides() {
+    var slides = document.getElementsByClassName("mySlides");
+    for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 2000); // Change slide every 2 seconds
+}
 
-  if (existingProductIndex !== -1) {
-      // If the product is already in the cart, increase its quantity.
-      cart[existingProductIndex].quantity++;
-  } else {
-      // If the product is not in the cart, add it.
-      cart.push(product);
-  }
+// Initial call to start the slideshow
+showSlides();
 
-  // Save the updated cart to localStorage.
-  localStorage.setItem('cart', JSON.stringify(cart));
+function addToCart(productName, price, country) {
+    cartItems.push({ name: productName, price: price, country: country });
+    updateCartModal();
+}
 
-  alert('Product added to cart successfully!');
+function showCart() {
+    document.getElementById("cartModal").style.display = "block";
+    document.getElementById("checkoutSection").style.display = "none"; // Hide checkout section
+    updateCartModal();
+}
+
+document.getElementsByClassName("close")[0].onclick = function () {
+    document.getElementById("cartModal").style.display = "none";
+};
+
+document.getElementById("cartCounter").onclick = function () {
+    showCart();
+};
+
+document.getElementById("checkoutBtn").onclick = function () {
+    // Show checkout section when the checkout button is clicked
+    document.getElementById("checkoutSection").style.display = "block";
+};
+
+document.getElementById("confirmPurchaseBtn").onclick = function () {
+    // Implement your confirmation logic here
+    alert("Purchase confirmed!");
+
+    // Hide checkout section and show the cart section
+    document.getElementById("checkoutSection").style.display = "none";
+    showCart();
+};
+
+document.getElementById("add-to-cart").addEventListener('click', function () {
+    addToCart('Product Name', '100', 'Egypt');
+    alert('Product added to cart successfully!');
 });
-
-// Add this script in your script.js file
 
 function scrollToTop() {
     window.scrollTo({
@@ -816,10 +968,10 @@ function scrollToTop() {
         behavior: "smooth"
     });
 }
+
 document.getElementById("current-year").textContent = new Date().getFullYear();
 
-// Show/Hide scroll-to-top button based on scroll position
-window.onscroll = function() {
+window.onscroll = function () {
     var scrollButton = document.querySelector(".scroll-to-top");
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         scrollButton.style.display = "block";
@@ -828,7 +980,37 @@ window.onscroll = function() {
     }
 };
 
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.addToCart').forEach(function (button) {
+        button.addEventListener('click', function () {
+            const productName = button.getAttribute('data-product-name');
+            const productPrice = parseFloat(button.getAttribute('data-product-price'));
+            addToCart(productName, productPrice, 'Egypt');
+            alert('Product added to cart successfully!');
+        });
+    });
+});
 
+// Call updateCartModal after adding items to the cart
+updateCartModal();
+
+function searchProducts() {
+  // Get user input
+  var searchValue = document.getElementById('searchInput').value.toLowerCase();
+
+  // Loop through each product card
+  var productCards = document.querySelectorAll('.col');
+  productCards.forEach(function(card) {
+    var productText = card.textContent.toLowerCase();
+
+    // If the search term is found, display the product; otherwise, hide it
+    if (productText.includes(searchValue)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
   </script>
 </body>
 </html>

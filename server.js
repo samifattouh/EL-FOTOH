@@ -16,7 +16,7 @@ const pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
   password: 'pwiw90',
-  database: 'ecommerce',
+  database: 'elfotohweb',
   connectionLimit: 10
 });
 
