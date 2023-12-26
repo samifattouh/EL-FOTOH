@@ -1,6 +1,5 @@
-
 const express = require('express');
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise'); // Import the promise-based version
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -20,50 +19,49 @@ const pool = mysql.createPool({
   connectionLimit: 10
 });
 
-let RESULTS = '';
-
-// Fetching product data
-pool.query('SELECT * FROM product', (queryError, results) => {
-  if (queryError) {
-    console.error('Error fetching products:', queryError);
-    return;
+app.get('/fetchData', async (req, res) => {
+  try {
+    const [rows, fields] = await pool.query('SELECT * FROM product');
+    res.send(rows);
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    res.status(500).send('Error fetching products');
   }
-  RESULTS = results;
 });
 
-app.get('/fetchData', (req, res) => {
-  res.send(RESULTS);
-});
+app.post('/login_api', async (req, res) => {
+  const { Email, password } = req.body;
 
-app.post('/login_api', (req, res) => {
-  const { username, password } = req.body;
+  console.log('Received login request with Email:', Email);
 
-  pool.query(
-    'SELECT * FROM Customer WHERE Email = ? AND Password = ?',
-    [Email, password],
-    (error, results) => {
-      if (error) {
-        res.status(500).send('Error checking credentials');
-        return;
-      }
+  try {
+    const [results] = await pool.query(
+      `SELECT * FROM Customer WHERE Email = ? AND Password = ?`,
+      [Email, password]
+    );
+    
 
-      if (results.length > 0) {
-        res.send('Login successful');
-      } else {
-        res.status(401).send('Incorrect username or password');
-      }
+    console.log('Results from the database:', results);
+
+    if (results.length > 0) {
+      res.send('Login successful');
+    } else {
+      res.status(401).send('Incorrect username or password');
     }
-  );
+  } catch (error) {
+    console.error('Error checking credentials:', error);
+    res.status(500).send('Error checking credentials');
+  }
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
 
 // Close the connection pool when the application exits
 process.on('SIGINT', () => {
-  pool.end(err => {
-    if (err) console.error('Error closing the MySQL pool:', err);
+  pool.end().then(() => {
+    console.log('MySQL pool closed');
     process.exit(0);
   });
 });
